@@ -1,0 +1,19 @@
+
+> handbook@0.0.0 dev
+> npm --prefix system/site run dev
+
+
+> site@0.0.0 dev
+> node next-no-telemetry.mjs dev
+
+▲ Next.js 16.3.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.100.148:3000
+✓ Ready in 58s
+[MDX] generated files in 474.23220000002766ms
+✓ Running next.config.mjs took 4.7min
+[MDX] started dev server
+⚠ Slow filesystem detected. The benchmark took 1044ms. If \\?\F:\Afaq Coding\Q5\handbook\system\site\.next\dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+✓ Finished writing to filesystem cache in 11.1s
+
