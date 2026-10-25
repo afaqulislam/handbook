@@ -31,4 +31,8 @@ system/site/public/sims/
 .env*
 !.env.example
 
+# local run output and editor-owned MCP config — never the record
+*.log
+/opencode.json
+
 .DS_Store
