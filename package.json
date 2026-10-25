@@ -17,6 +17,7 @@
     "gc": "ksor gc --instance instance.md"
   },
   "dependencies": {
+    "@modelcontextprotocol/server": "^2.3.0",
     "@panaversity/ksor": "0.0.60",
     "source-map-js": "1.2.2"
   },
