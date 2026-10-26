@@ -36,3 +36,8 @@ system/site/public/sims/
 /opencode.json
 
 .DS_Store
+# Vercel CLI's local project link (contains the project/org ids)
+.vercel/
+# Windows shell metadata
+Thumbs.db
+Desktop.ini

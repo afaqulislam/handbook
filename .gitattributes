@@ -3,3 +3,7 @@
 * text=auto
 *.md text eol=lf
 instance.md text eol=lf
+# the container reads these verbatim; a CRLF here must never reach a build host
+Dockerfile text eol=lf
+.dockerignore text eol=lf
+.npmrc text eol=lf

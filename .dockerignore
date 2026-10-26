@@ -14,8 +14,10 @@
 # So: nothing ships unless it is named here.
 *
 
-# The manifest, which pins @panaversity/ksor and is what `npm install` reads.
+# The manifest and the lockfile: `npm ci` installs exactly the audited tree.
 !package.json
+!package-lock.json
+!.npmrc
 
 # The record's identity and configuration. Its prose is the MCP server's
 # instructions, so the door genuinely needs the file.
@@ -34,4 +36,4 @@ system/*
 #   knowledge/    the door serves from Postgres. Copying the corpus in would
 #                 suggest the container reads it, and it never does.
 #   system/site/  the other surface, built and hosted separately.
-#   node_modules/ installed inside the image, from the manifest above.
+#   node_modules/ installed inside the image, from the lockfile above.

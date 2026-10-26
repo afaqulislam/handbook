@@ -79,6 +79,7 @@ Paste the printed `retrieval:` block into `instance.md` and restart the serve. M
 - **Location**: Add one Markdown file per document under `knowledge/`. Path = document identity/URL.
 - **Frontmatter**: Required `type`, `title`, `description`, `status` (`draft|stable|deprecated`), `ksor.audience`. `stable` requires `generated` and `ksor.approval` by an authorized actor; `deprecated` requires `ksor.deprecated` and usually `ksor.superseded_by`.
 - **Sources**: Cite sources in `sources` and reference with GFM footnotes `[^id]`.
+- **Structure for retrieval**: one topic per `##` section, and name the searchable subject in the heading — chunks and embeddings follow the heading path.
 - **Trust**: `verified` entries affect trust tier; policy does not restrict who may appear in `verified`.
 - **Pre-publish**: All drafts are hidden from published surfaces. Use `npm run dev` to preview.
 - **Checks**: Run `npm run check` before committing knowledge changes.
@@ -106,7 +107,7 @@ See [`AGENTS.md`](AGENTS.md) and [`.agents/skills/`](.agents/skills/) for full r
 
 - **Static site**: `npm run build` outputs to `system/site/out/`. Deploy to any static host.
 - **Vercel**: [`vercel.json`](vercel.json) defines `site` (static output) and `door` (container) services with rewrites routing `/mcp`, `/.well-known/*`, `/health`, `/ready` to the door.
-- **Docker**: [`Dockerfile`](Dockerfile) builds the MCP door. Bind to `$PORT` (0.0.0.0). Set `KSOR_SNAPSHOT_KEYS` for multi-replica/scale-to-zero. Note: `KSOR_AUTH=disabled-local` is refused on public binds.
+- **Docker**: [`Dockerfile`](Dockerfile) builds the MCP door. It installs the audited tree from `package-lock.json` (`npm ci`, no lifecycle scripts) and runs as the unprivileged `node` user. Bind to `$PORT` (0.0.0.0). Set `KSOR_SNAPSHOT_KEYS` for multi-replica/scale-to-zero. Note: `KSOR_AUTH=disabled-local` is refused on public binds, so a container run needs `-e KSOR_AUTH=disabled-public` (or the SSO variables).
 - **Important**: Serving (`npm run serve`) does not publish. Run `npm run refresh` / `npm run ingest` as a deploy step before starting the door in containers.
 
 ## Security
@@ -114,12 +115,14 @@ See [`AGENTS.md`](AGENTS.md) and [`.agents/skills/`](.agents/skills/) for full r
 - **Secrets**: Never commit `.env`. Only `.env.example` is tracked. Real env vars always override `.env`.
 - **Auth**: Local default is loopback-only auth disabled; a public bind refuses to boot unauthenticated. For public access, configure the SSO OAuth Resource Server.
 - **Token signing**: On multi-replica or scale-to-zero deployments, set `KSOR_SNAPSHOT_KEYS` (shared) or snapshot tokens won't verify across instances.
-- **Dependencies**: Pinned `@panaversity/ksor` 0.0.60; `next` updated to 16.4.3, `sharp` to 0.35.5, `source-map-js` to 1.2.2. Some advisories remain via the pinned toolchain (tracked in `npm audit`).
-- **Checks**: CI runs the format checker ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)).
+- **Dependencies**: `@panaversity/ksor` pinned at 0.0.60, `@modelcontextprotocol/server` 2.3.0, `next` 16.4.3. Root `overrides` lift `hono` to 4.13.11 and `zod` to 4.6.6; `sharp` and `source-map-js` are pinned too. `npm audit` reports **0 vulnerabilities** (production and dev), and `npm ci` reproduces the tested tree.
+- **Install scripts**: `.npmrc` sets `ignore-scripts=true`, so no dependency executes a lifecycle script during install. This is deliberate package-manager hardening, not a missing step.
+- **Checks**: CI runs the format checker ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)); secrets are never committed (`.env` is ignored, only `.env.example` is tracked).
 
 ## Known Limitations
 
-- **Abstention gate**: Calibrated with human-authored in-corpus probes and scope-adjacent out-of-corpus probes. With a small corpus the margin is tight; re-calibrate as the record grows and monitor with `--check`.
+- **Abstention gate**: calibrated 2026-10-26 on generation 9 with 10 in-corpus and 12 out-of-corpus probes: floor **0.681**, out-of-corpus max 0.653, in-corpus min 0.709 (margin 0.056). With a small corpus the margin is tight; re-calibrate after material changes and monitor with `npx ksor calibrate --instance instance.md --check`.
+- **Retrieval shape**: the chunker is heading-aware (one chunk per section, title + heading path embedded). Keep documents sectioned with `##` headings that name the subject, or a long mixed document dilutes narrow queries — the proof-of-purchase section in `knowledge/refund-policy.md` is the worked example.
 - **Synthesis calibration**: Gemini text model `gemini-3.7-flash` may be temporarily unavailable (high demand) — use `--queries-file` as a fallback.
 - **Starter content**: The record includes KSoR explanation documents alongside the handbook policy; they can be replaced/removed as your handbook grows.
 
@@ -136,4 +139,4 @@ MIT — see [LICENSE](LICENSE).
 - [`AGENTS.md`](AGENTS.md) — full working contract and detailed rules
 - [`instance.md`](instance.md) — project identity and MCP instructions
 - [`package.json`](package.json) — available scripts
-- [KSoR docs](node_modules/@panaversity/ksor/docs/) — building, deploying, ingesting, and tool surface
+- KSoR docs — `node_modules/@panaversity/ksor/docs/` after `npm install` (building, deploying, ingesting, and tool surface)
