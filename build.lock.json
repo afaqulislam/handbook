@@ -1,17 +1,17 @@
 {
   "format": 1,
-  "build_id": "sha256:7429b62392f087b6112d7505aece40d5118f4f357cdab09d8c61148c5b63e44a",
+  "build_id": "sha256:97623e5bf9f89ed9517409da60d43e9326d3e49e5cc32e10e50ecdb005706369",
   "ksor_version": "0.0.60",
   "okf": {
     "version": "0.2",
     "commit": "ad30107c31c06aec8a7d5636e0d1058118604e6f",
     "spec_sha256": "26aa5da029278939f914e578107242d9607d4f2dc5fe153272b82f9ed1030101"
   },
-  "source_commit": "aab8db90aeef2833dc03ef410b7130785ab78039",
+  "source_commit": "494f41ba735a629a7da231705a53a06ab8861ccd",
   "dirty": false,
-  "as_of": "2026-10-26T17:07:52.395Z",
+  "as_of": "2026-10-26T17:57:58.034Z",
   "drafts": "hidden",
-  "instance_sha256": "19158bb791ebb722c6168403567f45a5dfb64c8cbc5188bde1f35e0cfeafc8db",
+  "instance_sha256": "979aac638a51159f1b1e4e196464132a7df83a9a1080838c1575800f4aaa3029",
   "policy_sha256": "7a6ee73c482e2d545486b4888678612f5516f95042e3860dc081f9367e1d811c",
   "people_sha256": "01755a5e3cf0b00cd93a6844a765547fff8c5e22e378098193e13044a9bb4721",
   "ledger_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
