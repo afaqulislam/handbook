@@ -2,11 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "services": {
     "site": {
-      "root": ".",
+      "root": "system/site",
       "framework": "nextjs",
-      "installCommand": "npm install",
-      "buildCommand": "npm run build",
-      "outputDirectory": "system/site/out"
+      "installCommand": "npm install --prefix ../..",
+      "buildCommand": "npm --prefix ../.. run build"
     },
     "door": {
       "root": ".",
