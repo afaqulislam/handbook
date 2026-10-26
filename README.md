@@ -690,8 +690,6 @@ compilation failure.
 
 ## 🤝 Contributing Guidelines
 
-> **Placeholder — update before publication.**
-
 1. Read `AGENTS.md` before editing; it is the working contract.
 2. Create a branch; do not commit directly to `main`.
 3. Put content only in `knowledge/`; never add authored Markdown inside
@@ -704,33 +702,24 @@ compilation failure.
    in the pull request.
 8. Report security issues privately to the maintainer contact listed below.
 
-> Replace this section with the organization's branch policy, review
-> requirements, commit conventions, and code of conduct link.
-
 ---
 
 ## 👤 Maintainer / Author Information
 
-> **Placeholder — update before publication.**
-
 | Role | Name | Contact |
 | --- | --- | --- |
-| Maintainer / Author | Afaq Ul Islam *(per `LICENSE`)* | `[email@example.com]` |
-| Organization | `[Organization Name]` | `[https://example.com]` |
-
-> Replace placeholders with the current maintainer, ownership team, and
-> escalation contact.
+| Maintainer / Author | Afaq Ul Islam | [afaqulislam707@gmail.com](mailto:afaqulislam707@gmail.com) |
+| GitHub | [@afaqulislam](https://github.com/afaqulislam) | [github.com/afaqulislam](https://github.com/afaqulislam) |
+| LinkedIn | Afaq Ul Islam | [linkedin.com/in/afaqulislam](https://www.linkedin.com/in/afaqulislam) |
+| Website | [afaqulislam.vercel.app](https://afaqulislam.vercel.app) | [afaqulislam.vercel.app](https://afaqulislam.vercel.app) |
 
 ---
 
 ## 🛠 Support & Maintenance
 
-> **Placeholder — update before publication.**
-
-- **Issue tracking:** `[https://github.com/your-username/handbook/issues]`
-- **Support email:** `[support@example.com]`
-- **Response target:** `[e.g., 2 business days]`
-- **Maintenance model:** `[e.g., maintained by <team>; reviewed quarterly]`
+- **Issue tracking:** [github.com/afaqulislam/handbook/issues](https://github.com/afaqulislam/handbook/issues)
+- **Support email:** [afaqulislam707@gmail.com](mailto:afaqulislam707@gmail.com)
+- **Maintainer:** Afaq Ul Islam
 
 Operational checklist visible in the repository:
 
@@ -742,9 +731,6 @@ npm run gc                    # collect superseded generations
 npm audit                     # dependency review
 ```
 
-> Replace this section with the organization's SLA, on-call ownership, and
-> supported deployment targets.
-
 ---
 
 ## 📄 License
@@ -753,22 +739,17 @@ MIT License — see [`LICENSE`](LICENSE).
 
 Copyright © 2026 Afaq Ul Islam.
 
-> Confirm the license holder and add any organization-specific licensing terms
-> here before publication.
-
 ---
 
 ## 🔗 Social / Contact
 
-> **Placeholder — update before publication.**
-
 | Platform | Link |
 | --- | --- |
-| GitHub | `[https://github.com/your-username]` |
-| LinkedIn | `[https://www.linkedin.com/in/your-profile]` |
-| X / Twitter | `[https://x.com/your-handle]` |
-| Website | `[https://example.com]` |
-| Email | `[email@example.com]` |
+| GitHub | [github.com/afaqulislam](https://github.com/afaqulislam) |
+| LinkedIn | [linkedin.com/in/afaqulislam](https://www.linkedin.com/in/afaqulislam) |
+| X / Twitter | [x.com/afaqulislam708](https://x.com/afaqulislam708) |
+| Website | [afaqulislam.vercel.app](https://afaqulislam.vercel.app) |
+| Email | [afaqulislam707@gmail.com](mailto:afaqulislam707@gmail.com) |
 
 ---
 
