@@ -6,6 +6,7 @@ description: The organization's governed handbook — policies and operating kno
 toolchain:
   requires: ">=0.0.60"
   scaffolded: "0.0.60"
+mcp_url: https://handbook-aui.vercel.app/mcp
 # `database.dsn_env` names the environment variable holding the Postgres DSN —
 # never the DSN itself, which belongs in .env. `npm run dev` and `npm run build`
 # do not read it; it matters once the record is served over MCP.
