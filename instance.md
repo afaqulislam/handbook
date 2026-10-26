@@ -15,7 +15,7 @@ database:
 # out-of-corpus questions below it. Re-measure with `ksor calibrate` after the
 # record changes materially, and monitor it with `ksor calibrate --check`.
 retrieval:
-  vector_floor: 0.646   # calibrated 2026-10-23 on generation 1, model gemini-embedding-001/d1536, door: queries-file, ooc: adjacent
+  vector_floor: 0.681   # calibrated 2026-10-26 on generation 9, model gemini-embedding-001/d1536, door: queries-file (margin 0.056; OOC max 0.653, in-corpus min 0.709)
   floor_digest: 8bfb07d0e6f5
 ---
 
