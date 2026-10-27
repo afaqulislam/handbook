@@ -69,6 +69,7 @@ You can connect this handbook as a remote MCP server to any MCP-compatible clien
 ### Quick Setup by Client
 
 | Client | Where to add | Config |
+| --- | --- | --- |
 | **Claude Desktop** | `Settings > Developer > Edit Config` (`claude_desktop_config.json`) | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "type": "http",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
 | **Claude Code** | Terminal / `~/.claude.json` or project `.mcp.json` | ```bash\nclaude mcp add --transport http handbook https://handbook-aui.vercel.app/mcp\n``` |
 | **Claude.ai (claude.ai)** | *Use via Claude Desktop/Code or MCP connectors (if available)* | **Option 1: Use Claude Desktop/Claude Code (recommended)** – Add to `claude_desktop_config.json` or run `claude mcp add --transport http handbook https://handbook-aui.vercel.app/mcp`. **Option 2: If your Claude.ai plan has "MCP connectors/Integrations"** – Go to `Settings > Integrations/MCP` (only visible on supported plans/orgs) and add a custom HTTP/Streamable HTTP connector with URL `https://handbook-aui.vercel.app/mcp`. Availability varies by plan/region. If this option is missing, use Claude Desktop or Claude Code instead. |
