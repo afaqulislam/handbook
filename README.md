@@ -17,9 +17,18 @@ honest abstention.
 
 ---
 
+## 📚 Project Background & Learning Context
+
+- **Built with KSoR:** This project is built using Panaversity’s KSoR (`@panaversity/ksor`) framework/package as the foundation for a governed, MCP-powered knowledge system.
+- **GIAIC Learning Journey:** This project is part of my GIAIC learning journey. I applied the concepts and practical skills learned through GIAIC to design and implement this practical MCP-powered knowledge system.
+- **Clear Distinction:** Panaversity provided the KSoR framework/package used here, while GIAIC is the learning program through which I developed and applied the relevant skills. No official endorsement, sponsorship, or ownership by either organization is implied.
+
+---
+
 ## 📑 Table of Contents
 
 - [Project Overview](#-project-overview)
+- [Project Background & Learning Context](#-project-background--learning-context)
 - [Tech Stack](#-tech-stack)
 - [Architecture Overview](#-architecture-overview)
 - [Project Structure](#-project-structure)
@@ -60,9 +69,10 @@ You can connect this handbook as a remote MCP server to any MCP-compatible clien
 ### Quick Setup by Client
 
 | Client | Where to add | Config |
-| --- | --- | --- |
 | **Claude Desktop** | `Settings > Developer > Edit Config` (`claude_desktop_config.json`) | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "type": "http",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
 | **Claude Code** | Terminal / `~/.claude.json` or project `.mcp.json` | ```bash\nclaude mcp add --transport http handbook https://handbook-aui.vercel.app/mcp\n``` |
+| **Claude.ai (claude.ai)** | *Use via Claude Desktop/Code or MCP connectors (if available)* | **Option 1: Use Claude Desktop/Claude Code (recommended)** – Add to `claude_desktop_config.json` or run `claude mcp add --transport http handbook https://handbook-aui.vercel.app/mcp`. **Option 2: If your Claude.ai plan has "MCP connectors/Integrations"** – Go to `Settings > Integrations/MCP` (only visible on supported plans/orgs) and add a custom HTTP/Streamable HTTP connector with URL `https://handbook-aui.vercel.app/mcp`. Availability varies by plan/region. If this option is missing, use Claude Desktop or Claude Code instead. |
+| **ChatGPT (chatgpt.com / OpenAI)** | *Not generally available for arbitrary remote MCPs* | As of now, most ChatGPT web/app accounts do **not** have a public option to add arbitrary remote Streamable HTTP MCP servers. If your account/org shows **Settings > Connectors/Apps > Add MCP** (or an "MCP" section) for your plan, add `https://handbook-aui.vercel.app/mcp` as a remote HTTP/Streamable HTTP server. Otherwise use Claude Desktop, Claude Code, Cursor, Cline, Windsurf, or OpenCode to connect this server. |
 | **Cursor** | `Settings > MCP > Add new global MCP server` or `.cursor/mcp.json` | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
 | **Cline** | `MCP Servers > Remote Servers > Add Server` or `cline_mcp_settings.json` | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "type": "streamableHttp",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
 | **Windsurf** | `Settings > Cascade > MCP Servers > Add Server` or `mcp_config.json` | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "serverUrl": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
