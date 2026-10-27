@@ -68,6 +68,11 @@ You can connect this handbook as a remote MCP server to any MCP-compatible clien
 | **Windsurf** | `Settings > Cascade > MCP Servers > Add Server` or `mcp_config.json` | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "serverUrl": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
 | **Continue.dev** | `~/.continue/config.json` (`mcpServers`) | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "type": "streamable-http",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
 | **GitHub Copilot (VS Code)** | `settings.json` or `.vscode/mcp.json` | ```json\n{\n  "servers": {\n    "handbook": {\n      "type": "http",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
+| **ChatGPT (OpenAI)** | *Not natively supported yet* | ChatGPT web/app currently doesn't support adding custom remote MCP servers for all users. Use Claude, Cursor, Cline, or OpenCode instead. |
+| **Gemini CLI / Gemini Code Assist** | `~/.gemini/settings.json` or project config | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "httpUrl": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
+| **Aider** | `~/.aider.conf.yml` or `--mcp-servers` / config | ```yaml\nmcp_servers:\n  - name: handbook\n    type: http\n    url: https://handbook-aui.vercel.app/mcp\n``` |
+| **RooCode** | `MCP Servers > Add Remote Server` or `roo-cline_mcp_settings.json` | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "type": "streamableHttp",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
+| **LangGraph / LangSmith MCP** | Use `Streamable HTTP` transport in client config | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "transport": "streamable_http",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
 | **OpenCode** | `.opencode.json` / `opencode.json` | ```json\n{\n  "mcp": {\n    "handbook": {\n      "type": "remote",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
 
 > **Note:** This MCP is public and unauthenticated in its current deployment (`auth: disabled`). No API key is required. After connecting, try asking: *"Use the handbook MCP to search for the refund policy"* to verify it's working.
