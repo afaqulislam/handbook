@@ -68,23 +68,231 @@ You can connect this handbook as a remote MCP server to any MCP-compatible clien
 
 ### Quick Setup by Client
 
-| Client | Where to add | Config |
-| --- | --- | --- |
-| **Claude Desktop** | `Settings > Developer > Edit Config` (`claude_desktop_config.json`) | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "type": "http",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
-| **Claude Code** | Terminal / `~/.claude.json` or project `.mcp.json` | ```bash\nclaude mcp add --transport http handbook https://handbook-aui.vercel.app/mcp\n``` |
-| **Claude.ai (claude.ai)** | *Use via Claude Desktop/Code or MCP connectors (if available)* | **Option 1: Use Claude Desktop/Claude Code (recommended)** – Add to `claude_desktop_config.json` or run `claude mcp add --transport http handbook https://handbook-aui.vercel.app/mcp`. **Option 2: If your Claude.ai plan has "MCP connectors/Integrations"** – Go to `Settings > Integrations/MCP` (only visible on supported plans/orgs) and add a custom HTTP/Streamable HTTP connector with URL `https://handbook-aui.vercel.app/mcp`. Availability varies by plan/region. If this option is missing, use Claude Desktop or Claude Code instead. |
-| **ChatGPT (chatgpt.com / OpenAI)** | *Not generally available for arbitrary remote MCPs* | As of now, most ChatGPT web/app accounts do **not** have a public option to add arbitrary remote Streamable HTTP MCP servers. If your account/org shows **Settings > Connectors/Apps > Add MCP** (or an "MCP" section) for your plan, add `https://handbook-aui.vercel.app/mcp` as a remote HTTP/Streamable HTTP server. Otherwise use Claude Desktop, Claude Code, Cursor, Cline, Windsurf, or OpenCode to connect this server. |
-| **Cursor** | `Settings > MCP > Add new global MCP server` or `.cursor/mcp.json` | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
-| **Cline** | `MCP Servers > Remote Servers > Add Server` or `cline_mcp_settings.json` | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "type": "streamableHttp",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
-| **Windsurf** | `Settings > Cascade > MCP Servers > Add Server` or `mcp_config.json` | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "serverUrl": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
-| **Continue.dev** | `~/.continue/config.json` (`mcpServers`) | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "type": "streamable-http",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
-| **GitHub Copilot (VS Code)** | `settings.json` or `.vscode/mcp.json` | ```json\n{\n  "servers": {\n    "handbook": {\n      "type": "http",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
-| **ChatGPT (OpenAI)** | *Not natively supported yet* | ChatGPT web/app currently doesn't support adding custom remote MCP servers for all users. Use Claude, Cursor, Cline, or OpenCode instead. |
-| **Gemini CLI / Gemini Code Assist** | `~/.gemini/settings.json` or project config | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "httpUrl": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
-| **Aider** | `~/.aider.conf.yml` or `--mcp-servers` / config | ```yaml\nmcp_servers:\n  - name: handbook\n    type: http\n    url: https://handbook-aui.vercel.app/mcp\n``` |
-| **RooCode** | `MCP Servers > Add Remote Server` or `roo-cline_mcp_settings.json` | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "type": "streamableHttp",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
-| **LangGraph / LangSmith MCP** | Use `Streamable HTTP` transport in client config | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "transport": "streamable_http",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
-| **OpenCode** | `.opencode.json` / `opencode.json` | ```json\n{\n  "mcp": {\n    "handbook": {\n      "type": "remote",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
+**MCP Endpoint:** `https://handbook-aui.vercel.app/mcp`
+
+<details>
+<summary><b>Claude Desktop</b> – <code>claude_desktop_config.json</code></summary>
+
+Go to `Settings > Developer > Edit Config` and add:
+
+```json
+{
+  "mcpServers": {
+    "handbook": {
+      "type": "http",
+      "url": "https://handbook-aui.vercel.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Claude Code</b> – CLI</summary>
+
+Run this in your terminal:
+
+```bash
+claude mcp add --transport http handbook https://handbook-aui.vercel.app/mcp
+```
+
+Or add to `~/.claude.json` / `.mcp.json` in your project:
+
+```json
+{
+  "mcpServers": {
+    "handbook": {
+      "type": "http",
+      "url": "https://handbook-aui.vercel.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Claude.ai (claude.ai)</b> – Web/App</summary>
+
+- **Recommended:** Use **Claude Desktop** or **Claude Code** (most reliable way to connect custom remote MCPs).
+- **If available:** Some Claude.ai plans show `Settings > Integrations > MCP` / `MCP Connectors`. If visible, add a custom **HTTP/Streamable HTTP** connector with URL: `https://handbook-aui.vercel.app/mcp`. Availability depends on your plan, org, and region.
+- **If missing:** Use Claude Desktop/Claude Code instead.
+
+</details>
+
+<details>
+<summary><b>ChatGPT (chatgpt.com / OpenAI)</b> – Web/App</summary>
+
+ChatGPT currently does **not** have a universal option to add arbitrary remote Streamable HTTP MCP servers for most users.
+
+- **Check first:** Look for `Settings > Connectors > Add MCP` or `Apps > MCP` on your account/org. If present, add `https://handbook-aui.vercel.app/mcp` as a remote HTTP/Streamable HTTP server.
+- **If missing:** Use **Claude Desktop**, **Claude Code**, **Cursor**, **Cline**, **Windsurf**, or **OpenCode** instead.
+
+</details>
+
+<details>
+<summary><b>Cursor</b> – <code>.cursor/mcp.json</code> or Global MCP</summary>
+
+Add to `Settings > MCP > Add new global MCP server` or `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "handbook": {
+      "url": "https://handbook-aui.vercel.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Cline</b> – <code>cline_mcp_settings.json</code></summary>
+
+Go to `MCP Servers > Remote Servers > Add Server` or edit `cline_mcp_settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "handbook": {
+      "type": "streamableHttp",
+      "url": "https://handbook-aui.vercel.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Windsurf</b> – <code>mcp_config.json</code></summary>
+
+Go to `Settings > Cascade > MCP Servers > Add Server` or edit your `mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "handbook": {
+      "serverUrl": "https://handbook-aui.vercel.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Continue.dev</b> – <code>~/.continue/config.json</code></summary>
+
+```json
+{
+  "mcpServers": {
+    "handbook": {
+      "type": "streamable-http",
+      "url": "https://handbook-aui.vercel.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>GitHub Copilot (VS Code)</b> – <code>.vscode/mcp.json</code> or <code>settings.json</code></summary>
+
+```json
+{
+  "servers": {
+    "handbook": {
+      "type": "http",
+      "url": "https://handbook-aui.vercel.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Gemini CLI / Gemini Code Assist</b> – <code>~/.gemini/settings.json</code></summary>
+
+```json
+{
+  "mcpServers": {
+    "handbook": {
+      "httpUrl": "https://handbook-aui.vercel.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Aider</b> – <code>~/.aider.conf.yml</code></summary>
+
+```yaml
+mcp_servers:
+  - name: handbook
+    type: http
+    url: https://handbook-aui.vercel.app/mcp
+```
+
+</details>
+
+<details>
+<summary><b>RooCode</b> – <code>roo-cline_mcp_settings.json</code></summary>
+
+Go to `MCP Servers > Add Remote Server` or edit the config file:
+
+```json
+{
+  "mcpServers": {
+    "handbook": {
+      "type": "streamableHttp",
+      "url": "https://handbook-aui.vercel.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>LangGraph / LangSmith MCP</b> – Client Config</summary>
+
+Use Streamable HTTP transport:
+
+```json
+{
+  "mcpServers": {
+    "handbook": {
+      "transport": "streamable_http",
+      "url": "https://handbook-aui.vercel.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>OpenCode</b> – <code>opencode.json</code> / <code>.opencode.json</code></summary>
+
+```json
+{
+  "mcp": {
+    "handbook": {
+      "type": "remote",
+      "url": "https://handbook-aui.vercel.app/mcp"
+    }
+  }
+}
+```
+
+</details>
 
 > **Note:** This MCP is public and unauthenticated in its current deployment (`auth: disabled`). No API key is required. After connecting, try asking: *"Use the handbook MCP to search for the refund policy"* to verify it's working.
 
