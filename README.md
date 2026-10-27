@@ -36,8 +36,19 @@ honest abstention.
 - [Contributing Guidelines](#-contributing-guidelines)
 - [Maintainer / Author Information](#-maintainer--author-information)
 - [Support & Maintenance](#-support--maintenance)
+- [Live URLs](#-live-urls)
 - [License](#-license)
 - [Social / Contact](#-social--contact)
+
+---
+
+## 🔗 Live URLs
+
+- **Website:** [https://handbook-aui.vercel.app](https://handbook-aui.vercel.app) – Human-readable handbook site
+- **MCP Endpoint (Streamable HTTP):** [https://handbook-aui.vercel.app/mcp](https://handbook-aui.vercel.app/mcp) – Connect this to Claude, Cursor, Cline, and other MCP clients
+- **MCP Discovery:** [https://handbook-aui.vercel.app/.well-known/mcp/server.json](https://handbook-aui.vercel.app/.well-known/mcp/server.json) – Auto-discovery for MCP clients
+- **Health Check:** [https://handbook-aui.vercel.app/health](https://handbook-aui.vercel.app/health) – Service health status
+- **Readiness Check:** [https://handbook-aui.vercel.app/ready](https://handbook-aui.vercel.app/ready) – Readiness probe
 
 ---
 
