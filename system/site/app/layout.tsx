@@ -13,14 +13,46 @@ import KsorSearchDialog from "@/components/search-dialog";
 // if the project wants a specific face.
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://handbook-aui.vercel.app"),
   title: {
     default: appTitle,
     template: `%s | ${appTitle}`,
   },
-  description: "The Knowledge System of Record for humans and AI agents.",
+  description: "A governed Knowledge System of Record (KSoR) for policies and operating knowledge. MCP-powered retrieval with citations and honest abstention.",
+  applicationName: appTitle,
+  keywords: ["Knowledge System of Record", "KSoR", "Handbook", "MCP", "Model Context Protocol", "Governed Knowledge", "Policies", "Citations"],
+  authors: [{ name: "Afaq Ul Islam", url: "https://afaqulislam.vercel.app" }],
+  creator: "Afaq Ul Islam",
+  publisher: "Afaq Ul Islam",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://handbook-aui.vercel.app",
+    title: appTitle,
+    description: "A governed Knowledge System of Record (KSoR) for policies and operating knowledge. MCP-powered retrieval with citations and honest abstention.",
+    siteName: appTitle,
+    images: [
+      {
+        url: "/icon.png",
+        width: 512,
+        height: 512,
+        alt: `${appTitle} - Knowledge System of Record`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: appTitle,
+    description: "A governed Knowledge System of Record (KSoR) for policies and operating knowledge. MCP-powered retrieval with citations and honest abstention.",
+    images: ["/icon.png"],
+  },
   // A build that shows drafts (`KSOR_DRAFTS=show`) is a preview, and a static
   // site's pages are open-web artefacts: it says so to every crawler rather
-  // than letting a draft be indexed under the record's name (build spec §3).
+  // than letting a draft be indexed under the record's name (build spec A3).
   ...(readStageManifest().drafts === "shown" ? { robots: { index: false, follow: false } } : {}),
 };
 
