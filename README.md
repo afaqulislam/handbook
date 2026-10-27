@@ -37,6 +37,7 @@ honest abstention.
 - [Maintainer / Author Information](#-maintainer--author-information)
 - [Support & Maintenance](#-support--maintenance)
 - [Live URLs](#-live-urls)
+- [Connect the MCP Server](#-connect-the-mcp-server)
 - [License](#-license)
 - [Social / Contact](#-social--contact)
 
@@ -45,10 +46,31 @@ honest abstention.
 ## 🔗 Live URLs
 
 - **Website:** [https://handbook-aui.vercel.app](https://handbook-aui.vercel.app) – Human-readable handbook site
-- **MCP Endpoint (Streamable HTTP):** [https://handbook-aui.vercel.app/mcp](https://handbook-aui.vercel.app/mcp) – Connect this to Claude, Cursor, Cline, and other MCP clients
+- **MCP Endpoint (Streamable HTTP):** [https://handbook-aui.vercel.app/mcp](https://handbook-aui.vercel.app/mcp) – Connect this to Claude, Cursor, Cline, Windsurf, Copilot, and other MCP clients
 - **MCP Discovery:** [https://handbook-aui.vercel.app/.well-known/mcp/server.json](https://handbook-aui.vercel.app/.well-known/mcp/server.json) – Auto-discovery for MCP clients
 - **Health Check:** [https://handbook-aui.vercel.app/health](https://handbook-aui.vercel.app/health) – Service health status
 - **Readiness Check:** [https://handbook-aui.vercel.app/ready](https://handbook-aui.vercel.app/ready) – Readiness probe
+
+## 🔌 Connect the MCP Server
+
+You can connect this handbook as a remote MCP server to any MCP-compatible client using the Streamable HTTP endpoint below.
+
+**MCP Endpoint:** `https://handbook-aui.vercel.app/mcp`
+
+### Quick Setup by Client
+
+| Client | Where to add | Config |
+| --- | --- | --- |
+| **Claude Desktop** | `Settings > Developer > Edit Config` (`claude_desktop_config.json`) | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "type": "http",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
+| **Claude Code** | Terminal / `~/.claude.json` or project `.mcp.json` | ```bash\nclaude mcp add --transport http handbook https://handbook-aui.vercel.app/mcp\n``` |
+| **Cursor** | `Settings > MCP > Add new global MCP server` or `.cursor/mcp.json` | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
+| **Cline** | `MCP Servers > Remote Servers > Add Server` or `cline_mcp_settings.json` | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "type": "streamableHttp",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
+| **Windsurf** | `Settings > Cascade > MCP Servers > Add Server` or `mcp_config.json` | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "serverUrl": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
+| **Continue.dev** | `~/.continue/config.json` (`mcpServers`) | ```json\n{\n  "mcpServers": {\n    "handbook": {\n      "type": "streamable-http",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
+| **GitHub Copilot (VS Code)** | `settings.json` or `.vscode/mcp.json` | ```json\n{\n  "servers": {\n    "handbook": {\n      "type": "http",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
+| **OpenCode** | `.opencode.json` / `opencode.json` | ```json\n{\n  "mcp": {\n    "handbook": {\n      "type": "remote",\n      "url": "https://handbook-aui.vercel.app/mcp"\n    }\n  }\n}\n``` |
+
+> **Note:** This MCP is public and unauthenticated in its current deployment (`auth: disabled`). No API key is required. After connecting, try asking: *"Use the handbook MCP to search for the refund policy"* to verify it's working.
 
 ---
 
